@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+/* General */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #F1E7D0;
+}
+
+/* Main */
+.main {
+  max-width: 980px;
+  padding: 2rem;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 1px 1px 5px black;
+  min-height: 50vh;
+}
+
+/* Header */
+.header {
+  padding: 5rem;
+  background-color: black;
+  background-image: url('../img/music.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  gap: .3rem;
+}
+
+.search {
+  flex-grow: 1;
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
+/* Content */
+.content {
+  padding-top: 2rem;
+}
+
+.songs {
+  padding: 0;
+  list-style-type: none;
+}
+
+.song {
+  display: flex;
+  cursor: pointer;
+  padding: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+  transition: background-color .3s ease-in-out;
+}
+
+.song:nth-child(even) {
+  background-color: lightgray;
+}
+
+.song:hover {
+  background-color: gray;
+  color: white
+}
+
+.show {
+  background-color: goldenrod;
+  border: none;
+  padding: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.lyric {
+  font-size: 1.5rem;
+}
+
+.title {
+  font-size: 2rem;
+}
+
+.see__more {
+  text-align: end;
+}
+
+.see__more--link {
+  text-decoration: none;
+  padding: 20px;
+  background-color: #333;
+  color: #eee;
+  font-size: 1.5rem;
+}

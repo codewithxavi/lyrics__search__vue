@@ -1,0 +1,53 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lyric Search</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script defer src="https://unpkg.com/vue@next"></script>
+  <script src="js/main-vue.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <!-- Main -->
+  <main class="main">
+
+    <!-- Header widget -->
+    <header class="header">
+      <form v-on:submit.prevent="searchSongs" class="form">
+        <input v-model.trim="searchTerm" type="search" class="search" placeholder="Search artist or songs" required>
+        <input type="submit" class="submit" value="Search">
+      </form>
+    </header>
+
+    <!-- Content -->
+    <section class="content">
+      <ul class="songs" v-if="searching">
+        <li class="song" v-for="song in songs" v-on:click="getSong(song.artist.name, song.title)">
+          <img class="avatar" v-bind:src="song.album.cover">
+          <span>{{song.title}} by {{song.artist.name}}</span>
+          <button v-on:click="getSong(song.artist.name, song.title)" class="show">Show
+            Lyric</button>
+        </li>
+      </ul>
+
+
+
+      <section v-else>
+        <div class="see__more">
+          <a class="see__more--link" href="javascript:location.reload()">See other songs / artists</a>
+        </div>
+        <h1 class="title">{{song.title}} - {{song.artist}}</h1>
+        <p class="lyric" v-html="song.lyric">{{song.lyric}}</p>
+      </section>
+
+    </section>
+  </main>
+</body>
+
+</html>
